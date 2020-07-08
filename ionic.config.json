@@ -1,0 +1,7 @@
+{
+  "name": "radioApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
