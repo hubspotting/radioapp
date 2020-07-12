@@ -8,27 +8,31 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'livestream',
+        loadChildren: () => import('../pages/livestream/livestream.module').then(m => m.LivestreamPageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'donate',
+        loadChildren: () => import('../pages/donate/donate.module').then(m => m.DonatePageModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'events',
+        loadChildren: () => import('../pages/events/events.module').then(m => m.EventsPageModule)
+      },
+      { 
+        path: 'settings',
+        loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/livestream',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/livestream',
     pathMatch: 'full'
   }
 ];

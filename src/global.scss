@@ -27,3 +27,5 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import './theme/mixins.scss';
+@import './theme/colors.scss';
