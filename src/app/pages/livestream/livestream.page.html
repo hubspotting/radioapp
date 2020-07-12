@@ -1,9 +1,54 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>livestream</ion-title>
+<ion-header>
+  <ion-toolbar class="p-2">
+    <ion-buttons class="d-flex align-items-center justify-content-between">
+      <ion-label class="font-24 co-white">Shows</ion-label>
+      <ion-button mode="ios" slot="icon-only">
+        <ion-icon name="notifications-outline" class="font-24 co-white"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content>
+  <ion-slides pager="false" [options]="slideOpts">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header class="p-0 bg-lightblue">
+          <img src="https://image.shutterstock.com/image-photo/professional-audio-studio-sound-mixer-600w-1416409802.jpg" alt="">
+          <ion-label class="co-white font-20">Radio 1</ion-label>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header class="p-0  bg-lightblue">
+          <img src="https://image.shutterstock.com/image-photo/professional-microphone-radio-station-studio-600w-1218528058.jpg" alt="">
+          <ion-label class="co-white font-20">Radio 2</ion-label>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header class="p-0  bg-lightblue">
+          <img src="https://image.shutterstock.com/image-photo/radio-recording-studio-260nw-258362876.jpg" alt="">
+          <ion-label class="co-white font-20">Radio 3</ion-label>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
   
+  <div class="profile">
+    <div class="profile-box">
+      <ion-img class="profile-image" src="https://image.shutterstock.com/image-photo/radio-recording-studio-260nw-258362876.jpg"></ion-img>
+      <h3 padding-top class="co-white">Radio 3</h3>
+      <p padding-top class="co-white">Radio Station 3 Description Here</p>
+      <!-- play/stop button-->
+      <div>
+        <ion-button mode="ios" slot="icon-only">
+          <ion-icon name="play-outline" class="font-24 co-white"></ion-icon>
+        </ion-button>
+      </div>
+
+    </div>
+  </div>
 </ion-content>

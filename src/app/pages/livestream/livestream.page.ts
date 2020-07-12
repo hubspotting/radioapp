@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./livestream.page.scss'],
 })
 export class LivestreamPage implements OnInit {
-
+  slideOpts = {
+    speed: 400,
+    slidesPerView: 1.5,
+    centeredSlides: true
+  };
   constructor() { }
 
   ngOnInit() {
