@@ -12,6 +12,7 @@ export class LivestreamPage implements OnInit {
     slidesPerView: 1.5,
     centeredSlides: true
   };
+  streaming = false;
   playing= false;
   constructor(
     private radio: RadioService
@@ -21,7 +22,9 @@ export class LivestreamPage implements OnInit {
   }
 
   playAudio() {
+    this.streaming = true;
     this.radio.play("https://www.radioking.com/play/test-307").then(() => {
+      this.streaming = false;
       this.playing = true;
     });
   }
