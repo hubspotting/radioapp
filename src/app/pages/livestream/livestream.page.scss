@@ -3,4 +3,10 @@ ion-toolbar {
 }
 ion-content {
     --background: #02132a;
+    ion-button {
+        --background: white !important;
+        ion-icon {
+            color: red
+        }
+    }
 }
