@@ -9,6 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -16,7 +19,9 @@ import { AppComponent } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    BackgroundMode,
+    NativeAudio
   ],
   bootstrap: [AppComponent]
 })

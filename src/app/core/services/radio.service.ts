@@ -1,25 +1,31 @@
 import { Injectable } from '@angular/core';
 
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RadioService {
   stream: any;
   promise: any;
-  constructor() { }
+  constructor(
+    private nativeAudio: NativeAudio,
+    private backgroudMode: BackgroundMode
+  ) { }
 
   play(url) {
-    console.log(url);
     this.stream = new Audio(url);
+    this.backgroudMode.enable();
+    this.backgroudMode.on('activate').subscribe((res) => {
+      this.stream.play();
+      this.stream.volume = 0.5;
+    });
     this.stream.play();
-    this.stream.volume = 0.5;
-    console.log("SHOW VOL = " + this.stream.volume);
     this.promise = new Promise((resolve, reject) => {
       this.stream.addEventListener('playing', () => {
-        console.log("Radio is play");
         resolve(true);
       });
-
       this.stream.addEventListener('error', () => {
         reject(false);
       });
