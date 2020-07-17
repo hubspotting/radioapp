@@ -11,7 +11,10 @@ import { AppComponent } from './app.component';
 
 
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { BackgroundMode } from '@ionic-native/background-mode/ngx'
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
+import { Media } from '@ionic-native/media/ngx';
+import { MusicControls } from '@ionic-native/music-controls/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,7 +24,10 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx'
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BackgroundMode,
-    NativeAudio
+    NativeAudio,
+    StreamingMedia,
+    Media,
+    MusicControls
   ],
   bootstrap: [AppComponent]
 })

@@ -33,8 +33,4 @@ export class LivestreamPage implements OnInit {
     this.playing = false;
     this.radio.pause();
   }
-
-  stop() {
-    this.radio.stop();
-  }
 }
