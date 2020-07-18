@@ -1,22 +1,17 @@
 import { Injectable } from '@angular/core';
-
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-media/ngx';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
-import { MusicControls } from '@ionic-native/music-controls/ngx';
+import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RadioService {
   stream: MediaObject;
   promise: any;
+  isPlaying = false;
+  isPlaying$: Subject<boolean> = new Subject<boolean>();
   constructor(
-    private nativeAudio: NativeAudio,
-    private backgroundMode: BackgroundMode,
-    private streaming: StreamingMedia,
     private media: Media,
-    private musicControl: MusicControls
   ) { }
 
   play(url) {
@@ -24,12 +19,23 @@ export class RadioService {
       this.stream = this.media.create(url);
       this.stream.play({
         playAudioWhenScreenIsLocked: true
-      })
+      });
+      this.isPlaying = true;
+      this.isPlaying$.next(true);
       resolve(true);
     });
   };
 
   pause() {
-    this.stream.stop();
+    return new Promise((resolve) => {
+      this.isPlaying = false;
+      this.isPlaying$.next(false);
+      this.stream.stop();
+      resolve(true);
+    });
+  }
+
+  alert() {
+    alert('asdflkjasdjflkasdkf');
   }
 }

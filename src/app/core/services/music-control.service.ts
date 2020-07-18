@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { MusicControls } from '@ionic-native/music-controls/ngx';
 
+import { MusicControls } from '@ionic-native/music-controls/ngx';
+import { RadioService } from './radio.service';
 @Injectable({
   providedIn: 'root'
 })
 export class MusicControlService {
 
   constructor(
-    private musicControls: MusicControls
+    private musicControls: MusicControls,
+    private radioService: RadioService
   ) { }
 
   async createMusicControl() {
@@ -44,22 +46,22 @@ export class MusicControlService {
       closeIcon: 'media_close',
       notificationIcon: 'notification'
     });
-  }
-
-  async subscribeMusicControl() {
     await this.musicControls.subscribe().subscribe(action => {
-      function events(action) {
+      // function events(action) {
         const message = JSON.parse(action).message;
             switch(message) {
                 case 'music-controls-pause':
-                    // Do something
-                    break;
+                  this.musicControls.updateIsPlaying(false);
+                  this.radioService.pause();
+                  // this.radioService.alert();
+                  break;
                 case 'music-controls-play':
-                    // Do something
-                    break;
+                  this.musicControls.updateIsPlaying(true);
+                  this.radioService.play('https://www.radioking.com/play/test-307');
+                  break;
                 case 'music-controls-destroy':
-                    // Do something
-                    break;
+                  this.radioService.pause();
+                  break;
    
                 // External controls (iOS only)
                 case 'music-controls-toggle-play-pause' :
@@ -80,7 +82,7 @@ export class MusicControlService {
               default:
                   break;
           }
-        }
+        
       });
       this.musicControls.listen();
   }
