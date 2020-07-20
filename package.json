@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@capacitor/core": "2.2.1",
+    "@ionic-native/admob-free": "^5.27.0",
     "@ionic-native/background-mode": "^5.27.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/media": "^5.27.0",
@@ -30,13 +31,18 @@
     "@ionic-native/streaming-media": "^5.27.0",
     "@ionic/angular": "^5.0.0",
     "bootstrap": "^4.5.0",
+    "cordova-admob-sdk": "^0.24.1",
     "cordova-android": "8.1.0",
+    "cordova-plugin-admob-free": "^0.27.0",
+    "cordova-plugin-androidx": "^2.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.1",
     "cordova-plugin-background-mode": "^0.7.3",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-media": "^5.0.3",
     "cordova-plugin-music-controls": "git+https://github.com/homerours/cordova-music-controls-plugin.git",
     "cordova-plugin-nativeaudio": "^3.0.9",
     "cordova-plugin-streaming-media": "^2.3.0",
+    "cordova-promise-polyfill": "0.0.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -86,7 +92,13 @@
       "cordova-plugin-nativeaudio": {},
       "cordova-plugin-streaming-media": {},
       "cordova-plugin-media": {},
-      "cordova-plugin-music-controls": {}
+      "cordova-plugin-music-controls": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-4784470191644794~6000147662",
+        "PLAY_SERVICES_VERSION": "+"
+      },
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "android"
