@@ -15,6 +15,7 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 import { Media } from '@ionic-native/media/ngx';
 import { MusicControls } from '@ionic-native/music-controls/ngx';
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +28,8 @@ import { MusicControls } from '@ionic-native/music-controls/ngx';
     NativeAudio,
     StreamingMedia,
     Media,
-    MusicControls
+    MusicControls,
+    AdMobFree
   ],
   bootstrap: [AppComponent]
 })

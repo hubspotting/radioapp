@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { RadioService } from './../../core/services/radio.service';
 import { MusicControlService } from './../../core/services/music-control.service';
 import { takeUntil } from 'rxjs/operators';
+import { AdmobService } from './../../core/services/admob.service';
 
 @Component({
   selector: 'app-livestream',
@@ -21,11 +22,14 @@ export class LivestreamPage implements OnInit, OnDestroy {
   constructor(
     private radio: RadioService,
     private controlService: MusicControlService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private admobService: AdmobService
   ) { }
 
   ngOnInit() {
-    // this.updateIsPlaying();
+    this.admobService.showAdmobBanner().then((res) => {
+      
+    });
     this.radio.isPlaying$.asObservable()
     .pipe(takeUntil(this.unsubscribeAll))
     .subscribe((res) => {
@@ -37,6 +41,7 @@ export class LivestreamPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
+    this.admobService.removeBanner();
   }
 
   async playAudio() {

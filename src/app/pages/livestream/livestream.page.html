@@ -45,10 +45,10 @@
       <!-- play/stop button-->
       <div class="d-block m-auto text-center mt-2">
         <ion-button mode="ios" slot="icon-only" *ngIf="!playing && !streaming"  (click)="playAudio()">
-          <ion-icon name="play-outline" class="font-24 co-white"></ion-icon>
+          <ion-icon name="play-outline" class="font-24"></ion-icon>
         </ion-button>
         <ion-button mode="ios" slot="icon-only" *ngIf="playing"  (click)="pauseAudio()">
-          <ion-icon name="pause-outline" class="font-24 co-white"></ion-icon>
+          <ion-icon name="pause-outline" class="font-24"></ion-icon>
         </ion-button>
         <ion-spinner name="lines" *ngIf="streaming" class="font-24 co-white"></ion-spinner>
       </div>
