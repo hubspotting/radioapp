@@ -1,7 +1,6 @@
 {
-  "name": "radioApp",
+  "name": "rehoboth",
   "integrations": {
-    "capacitor": {},
     "cordova": {}
   },
   "type": "angular"

@@ -6,12 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { SettingsPageRoutingModule } from './settings-routing.module';
 
-import { SettingsPage } from './settings/settings.page';
-// components for modal
-import { ContactComponent } from './contact/contact.component';
-import { MissionComponent } from './mission/mission.component';
-import { PolicyComponent } from './policy/policy.component';
-import { AboutComponent } from './about/about.component';
+import { SettingsPage } from './settings.page';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,12 +15,6 @@ import { AboutComponent } from './about/about.component';
     IonicModule,
     SettingsPageRoutingModule
   ],
-  declarations: [
-    SettingsPage,
-    AboutComponent,
-    PolicyComponent,
-    MissionComponent,
-    ContactComponent
-  ]
+  declarations: [SettingsPage]
 })
 export class SettingsPageModule {}

@@ -2,7 +2,7 @@
 <widget id="com.rehoboth.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Rehoboth</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Silver Team</author>
+    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -99,8 +99,4 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-admob-free" spec="^0.27.0">
-        <variable name="ADMOB_APP_ID" value="ca-app-pub-4784470191644794~6000147662" />
-        <variable name="PLAY_SERVICES_VERSION" value="+" />
-    </plugin>
 </widget>
