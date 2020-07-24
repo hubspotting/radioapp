@@ -6,5 +6,16 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-label class=""></ion-label>
+  <ion-label class="d-block text-center font-30">FM 107.2</ion-label>
+  <ion-img src="assets/images/company.png" class="d-block m-auto"></ion-img>
+
+  <div class="d-block m-auto text-center mt-2">
+    <ion-button mode="ios" slot="icon-only" *ngIf="!playing && !streaming"  (click)="playAudio()">
+      <ion-icon name="play-outline" class="font-24"></ion-icon>
+    </ion-button>
+    <ion-button mode="ios" slot="icon-only" *ngIf="playing"  (click)="pauseAudio()">
+      <ion-icon name="pause-outline" class="font-24"></ion-icon>
+    </ion-button>
+    <ion-spinner name="lines" *ngIf="streaming" class="font-24 co-white"></ion-spinner>
+  </div>
 </ion-content>

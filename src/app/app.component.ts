@@ -22,11 +22,11 @@ export class AppComponent implements OnInit {
       url: 'donate',
       icon: 'paper-plane'
     },
-    {
-      title: 'Song Lyric',
-      url: 'lyrics',
-      icon: 'heart'
-    },
+    // {
+    //   title: 'Song Lyric',
+    //   url: 'lyrics',
+    //   icon: 'heart'
+    // },
     {
       title: 'Request Special Track',
       url: 'trackrequest',
@@ -53,8 +53,13 @@ export class AppComponent implements OnInit {
       icon: 'warning'
     },
     {
-      title: 'Settings',
-      url: 'settings',
+      title: 'Mission Statements',
+      url: 'mission',
+      icon: 'warning'
+    },
+    {
+      title: 'About Us',
+      url: 'about',
       icon: 'warning'
     }
   ];
@@ -69,15 +74,12 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.show();
       this.splashScreen.hide();
     });
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
+
   }
 }
