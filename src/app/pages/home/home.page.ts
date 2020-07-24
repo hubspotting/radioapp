@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 })
 export class HomePage implements OnInit {
   streaming = false;
-  playing = false;
+  playing: boolean;
   private unsubscribeAll: Subject<any> = new Subject<any>();
   constructor(
     private radio: RadioService,
@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.playing = this.radio.isPlaying;
     this.radio.isPlaying$.asObservable()
     .pipe(takeUntil(this.unsubscribeAll))
     .subscribe((res) => {

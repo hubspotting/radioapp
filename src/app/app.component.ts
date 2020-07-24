@@ -15,12 +15,12 @@ export class AppComponent implements OnInit {
     {
       title: 'Home',
       url: 'home',
-      icon: 'mail'
+      icon: 'radio'
     },
     {
       title: 'Donate',
       url: 'donate',
-      icon: 'paper-plane'
+      icon: 'eyedrop'
     },
     // {
     //   title: 'Song Lyric',
@@ -30,37 +30,37 @@ export class AppComponent implements OnInit {
     {
       title: 'Request Special Track',
       url: 'trackrequest',
-      icon: 'archive'
+      icon: 'musical-note'
     },
     {
       title: 'Prayer Request',
       url: 'prayerrequest',
-      icon: 'trash'
+      icon: 'hand-left'
     },
     {
       title: 'Request Conselling',
       url: 'conselling',
-      icon: 'warning'
+      icon: 'pricetag'
     },
     {
       title: 'Contact Us',
       url: 'contact',
-      icon: 'warning'
+      icon: 'paper-plane'
     },
     {
       title: 'Privacy Policy',
       url: 'policy',
-      icon: 'warning'
+      icon: 'school'
     },
     {
       title: 'Mission Statements',
       url: 'mission',
-      icon: 'warning'
+      icon: 'cellular'
     },
     {
       title: 'About Us',
       url: 'about',
-      icon: 'warning'
+      icon: 'person'
     }
   ];
 
