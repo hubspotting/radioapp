@@ -1,11 +1,9 @@
+ion-header {
+    --border-color: transparent !important;
+    --border-width: 0px !important;
+}
 ion-content {
     height: 100vh;
-    ion-toolbar {
-        height: 10%;
-    }
-    .main-body {
-        height: 80%;
-    }
     ion-img {
         width: 80%;
     }

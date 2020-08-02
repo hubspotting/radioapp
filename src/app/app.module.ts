@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { Media } from '@ionic-native/media/ngx';
 import { MusicControls } from '@ionic-native/music-controls/ngx';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +25,8 @@ import { MusicControls } from '@ionic-native/music-controls/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Media,
-    MusicControls
+    MusicControls,
+    InAppBrowser
   ],
   bootstrap: [AppComponent]
 })

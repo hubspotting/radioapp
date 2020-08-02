@@ -28,3 +28,19 @@
 
 @import '~bootstrap/scss/bootstrap';
 @import './theme/mixins.scss';
+
+
+ion-toolbar {
+    --background: rgb(235, 100, 224) !important;
+    ion-menu-button {
+        color: white !important;
+    }
+}
+ion-menu-toggle {
+    ion-item.selected {
+        --color: rgb(235, 100, 224) !important;
+        ion-icon {
+            color: rgb(235, 100, 224) !important;
+        }
+    }
+}

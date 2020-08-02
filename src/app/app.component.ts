@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,19 +20,20 @@ export class AppComponent implements OnInit {
       icon: 'radio'
     },
     {
-      title: 'Donate',
-      url: 'donate',
-      icon: 'eyedrop'
+      title: 'About Us',
+      url: 'about',
+      icon: 'person'
     },
-    // {
-    //   title: 'Song Lyric',
-    //   url: 'lyrics',
-    //   icon: 'heart'
-    // },
+    {
+      title: 'Mission Statements',
+      url: 'mission',
+      icon: 'cellular'
+    },
     {
       title: 'Request Special Track',
       url: 'trackrequest',
-      icon: 'musical-note'
+      icon: 'musical-note',
+      link: 'https://radiorehoboth.org/requests'
     },
     {
       title: 'Prayer Request',
@@ -40,12 +43,8 @@ export class AppComponent implements OnInit {
     {
       title: 'Request Conselling',
       url: 'conselling',
-      icon: 'pricetag'
-    },
-    {
-      title: 'Contact Us',
-      url: 'contact',
-      icon: 'paper-plane'
+      icon: 'pricetag',
+      link: 'https://radiorehoboth.org/requests'
     },
     {
       title: 'Privacy Policy',
@@ -53,21 +52,23 @@ export class AppComponent implements OnInit {
       icon: 'school'
     },
     {
-      title: 'Mission Statements',
-      url: 'mission',
-      icon: 'cellular'
+      title: 'Donate',
+      url: 'donate',
+      icon: 'eyedrop',
+      link: 'https://radiorehoboth.org/donate'
     },
     {
-      title: 'About Us',
-      url: 'about',
-      icon: 'person'
+      title: 'Contact Us',
+      url: 'contact',
+      icon: 'paper-plane'
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private iab: InAppBrowser
   ) {
     this.initializeApp();
   }
@@ -81,5 +82,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  async gotoLink(link) {
+    const browser = await this.iab.create(link, '_blank');
+    browser.show();
   }
 }
