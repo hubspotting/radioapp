@@ -15,7 +15,7 @@ export class MusicControlService {
   async createMusicControl() {
     await this.musicControls.create({
       track       : 'Radio Rehoboth',        // optional, default : ''
-      cover       : 'https://drive.google.com/file/d/11hEYO77vZJTzYRTOumlCpc61johWRZ3j/view?usp=sharing',      // optional, default : nothing
+      cover       : 'https://www.magic933.com/wp-content/uploads/2018/02/1.jpg',      // optional, default : nothing
       // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
       //           or a remote url ('http://...', 'https://...', 'ftp://...')
       isPlaying   : true,                         // optional, default : true
@@ -26,7 +26,7 @@ export class MusicControlService {
       hasNext   : false,      // show next button, optional, default: true
       hasClose  : false,       // show close button, optional, default: false
     
-      // iOS only, optional
+    // iOS only, optional
       album       : 'Absolution',     // optional, default: ''
       duration : 60, // optional, default: 0
       elapsed : 10, // optional, default: 0

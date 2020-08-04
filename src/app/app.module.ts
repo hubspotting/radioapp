@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { Media } from '@ionic-native/media/ngx';
 import { MusicControls } from '@ionic-native/music-controls/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,7 +28,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Media,
     MusicControls,
-    InAppBrowser
+    InAppBrowser,
+    File,
+    SocialSharing
   ],
   bootstrap: [AppComponent]
 })

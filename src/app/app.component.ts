@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
       title: 'Prayer Request',
       url: 'prayerrequest',
       icon: 'hand-left',
-      link: 'https://radiorehoboth.org/requests'
+      // link: 'https://radiorehoboth.org/requests'
     },
     {
       title: 'Request Conselling',
