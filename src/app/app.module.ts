@@ -14,6 +14,7 @@ import { MusicControls } from '@ionic-native/music-controls/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,7 +31,8 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     MusicControls,
     InAppBrowser,
     File,
-    SocialSharing
+    SocialSharing,
+    AdMobFree
   ],
   bootstrap: [AppComponent]
 })

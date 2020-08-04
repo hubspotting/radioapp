@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { AdmobService } from './core/services/admob.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -69,7 +71,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private admobSerivce: AdmobService
   ) {
     this.initializeApp();
   }
@@ -82,7 +85,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.admobSerivce.showAdmobBanner();
   }
 
   async gotoLink(link) {
