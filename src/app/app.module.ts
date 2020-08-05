@@ -15,6 +15,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { MediaCapture } from '@ionic-native/media-capture/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,7 +34,9 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
     InAppBrowser,
     File,
     SocialSharing,
-    AdMobFree
+    AdMobFree,
+    MediaCapture,
+    AndroidPermissions
   ],
   bootstrap: [AppComponent]
 })
