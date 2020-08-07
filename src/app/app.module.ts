@@ -17,6 +17,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx'
+import { FCM } from '@ionic-native/fcm/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -36,7 +37,8 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx'
     SocialSharing,
     AdMobFree,
     MediaCapture,
-    AndroidPermissions
+    AndroidPermissions,
+    FCM
   ],
   bootstrap: [AppComponent]
 })

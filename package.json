@@ -22,6 +22,7 @@
     "@ionic-native/admob-free": "^5.27.0",
     "@ionic-native/android-permissions": "^5.27.0",
     "@ionic-native/core": "^5.0.7",
+    "@ionic-native/fcm": "^5.27.0",
     "@ionic-native/file": "^5.27.0",
     "@ionic-native/in-app-browser": "^5.27.0",
     "@ionic-native/media": "^5.27.0",
@@ -38,6 +39,7 @@
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-androidx": "^2.0.0",
     "cordova-plugin-androidx-adapter": "^1.1.1",
+    "cordova-plugin-fcm-with-dependecy-updated": "^7.0.9",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-inappbrowser": "^4.0.0",
     "cordova-plugin-media": "^5.0.3",
@@ -103,7 +105,13 @@
         "ADMOB_APP_ID": "ca-app-pub-4784470191644794~6000147662"
       },
       "cordova-plugin-media-capture": {},
-      "cordova-plugin-android-permissions": {}
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-fcm-with-dependecy-updated": {
+        "ANDROID_FCM_VERSION": "19.0.0",
+        "ANDROID_GRADLE_TOOLS_VERSION": "3.5.3",
+        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.3",
+        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher"
+      }
     },
     "platforms": [
       "android"

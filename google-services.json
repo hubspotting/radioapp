@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "179052047214",
+    "firebase_url": "https://rehoboth-3a471.firebaseio.com",
+    "project_id": "rehoboth-3a471",
+    "storage_bucket": "rehoboth-3a471.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179052047214:android:042145cffc93e68b426f7f",
+        "android_client_info": {
+          "package_name": "com.rehoboth.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179052047214-9dc4o4o91bjrjt5cf0dtnl0q7b44bgd8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaZMX3uA_SjBA487TXUEswAl2jtneZP_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179052047214-9dc4o4o91bjrjt5cf0dtnl0q7b44bgd8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-4784470191644794~6000147662"
+    }
+  ],
+  "configuration_version": "1"
+}
