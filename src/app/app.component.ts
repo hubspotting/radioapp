@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.admobSerivce.showAdmobBanner().then((res) => {
-      alert(res);
+
     });
   }
 
