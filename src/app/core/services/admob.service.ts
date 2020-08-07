@@ -7,9 +7,9 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free/ngx';
 })
 export class AdmobService {
   admobConfig: AdMobFreeBannerConfig = {
-    isTesting: false,
+    isTesting: true,
     autoShow: true,
-    id: 'ca-app-pub-4784470191644794/1869330964'
+    id: 'ca-app-pub-4784470191644794/8616165159'
   };
   constructor(
     private platform: Platform,
