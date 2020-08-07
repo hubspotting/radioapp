@@ -19,6 +19,8 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
   duration = 0;
   interval: any;
   playing = false;
+  
+  files = [];
   constructor(
     private media: Media,
     private file: File,
@@ -28,6 +30,28 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    let path = this.file.externalDataDirectory;
+    this.file.checkDir(path, 'RadioStaion').then(() => {
+      this.loadFiles();
+    }, err => {
+      this.file.createDir(path, 'RadioStation', false).then((directory) => {
+        alert(JSON.stringify(directory));
+      });
+    });
+  }
+
+
+  loadFiles() {
+    this.file.listDir(this.file.externalDataDirectory, 'RadioStation').then(
+      res => {
+        alert('asdf');
+        this.files = res;
+      },
+      err => {
+        alert('qwer');
+        console.log('error loading files: ', err)
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -39,10 +63,6 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
       this.audioList = JSON.parse(localStorage.getItem("audiolist"));
       console.log(this.audioList);
     }
-  }
-
-  ionViewWillEnter() {
-    this.getAudioList();
   }
 
 
@@ -69,14 +89,15 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
   startRecord() {  
     if (this.platform.is('ios')) {
       this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.3gp';
-      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + this.fileName;
+      this.filePath = this.file.documentsDirectory.replace(/^file:\/\//, '') + this.fileName;
       this.audio = this.media.create(this.filePath);
     } else if (this.platform.is('android')) {
-        this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.mp3';
-        const temp = this.file.externalDataDirectory;
-        alert(temp);
-        this.file.createFile( temp , this.fileName , true).then((res) => {
-          this.duration = 0;
+        this.fileName = 'record.mp3';
+        this.file.createFile(this.file.externalDataDirectory, this.fileName, true).then((res) => {
+          alert(JSON.stringify(res));
+          this.filePath = this.file.externalDataDirectory.replace(/^file:\/\//, '') + this.fileName;
+          this.audio = this.media.create(this.filePath);
+          this.audio.startRecord();
           this.interval = setInterval(() => {
             if (this.duration === 60) {
               this.stopRecord();
@@ -86,10 +107,23 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
             }
           }, 1000);
           this.recording = true;
-          this.filePath = this.file.externalDataDirectory.replace(/^file:\/\//, '') + this.fileName;
-          this.audio = this.media.create(this.filePath);
-          this.audio.startRecord();
-          })
+        });
+        // this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.mp3';
+        // this.file.createFile( this.file.externalApplicationStorageDirectory , this.fileName , true).then((res) => {
+        //   this.duration = 0;
+        //   this.interval = setInterval(() => {
+        //     if (this.duration === 60) {
+        //       this.stopRecord();
+        //       clearInterval(this.interval);
+        //     } else {
+        //       this.duration++;
+        //     }
+        //   }, 1000);
+        //   this.recording = true;
+        //   this.filePath = this.file.externalApplicationStorageDirectory.replace(/^file:\/\//, '') + this.fileName;
+        //   this.audio = this.media.create(this.filePath);
+        //   this.audio.startRecord();
+        //   })
         } 
     }
       // this.fileName = 'record'+new Date().getDate()+new Date().getMonth()+new Date().getFullYear()+new Date().getHours()+new Date().getMinutes()+new Date().getSeconds()+'.mp3';
@@ -103,30 +137,40 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
       // this.recording = true;
 
   stopRecord() {
+    // this.audio.stopRecord();
+    // this.audio.release();
+    // let data = { filename: this.fileName, duration: this.duration, filePath: this.filePath };
+    // this.audioList.push(data);
+    // localStorage.setItem("audiolist", JSON.stringify(this.audioList));
+    // this.recording = false;
+    // this.getAudioList();
     this.audio.stopRecord();
-    let data = { filename: this.fileName, duration: this.duration, filePath: this.filePath };
+    let data = { filename: this.fileName };
     this.audioList.push(data);
     localStorage.setItem("audiolist", JSON.stringify(this.audioList));
     this.recording = false;
     this.getAudioList();
-    
     clearInterval(this.interval);
   }
 
 
-  async playAudio(filePath,idx) {
-    this.audio = await this.media.create(filePath);
-    alert(this.audio.getDuration());
+  async playAudio(file,idx) {
+    if (this.platform.is('ios')) {
+      this.filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + file;
+      this.audio = this.media.create(this.filePath);
+    } else if (this.platform.is('android')) {
+      this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + file;
+      this.audio = this.media.create(this.filePath);
+    }
     this.audio.play();
     this.audio.setVolume(0.8);
   }
 
-  shareByEmail(filePath) {
-    const path = 'file://' + filePath;
-    this.socialSharing.shareViaEmail('Hi Rehoboth Station', 'Prayer Request', ['host@radiorehoboth.org'], [], [], path)
+  shareByEmail(file) {
+    const filePath = 'file://' + file;
+    this.socialSharing.shareViaEmail('Hi Rehoboth Station', 'Prayer Request', ['host@radiorehoboth.org'], [], [], filePath)
     .then((res) => {
     });
-    
   }
 
 }
