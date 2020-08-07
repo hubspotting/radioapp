@@ -10,7 +10,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
   templateUrl: './prayer-request.page.html',
   styleUrls: ['./prayer-request.page.scss'],
 })
-export class PrayerRequestPage implements OnInit, OnDestroy {
+export class PrayerRequestPage implements OnInit {
   recording: boolean = false;
   filePath: string;
   fileName: string;
@@ -30,32 +30,7 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    let path = this.file.externalDataDirectory;
-    this.file.checkDir(path, 'RadioStaion').then(() => {
-      this.loadFiles();
-    }, err => {
-      this.file.createDir(path, 'RadioStation', false).then((directory) => {
-        alert(JSON.stringify(directory));
-      });
-    });
-  }
-
-
-  loadFiles() {
-    this.file.listDir(this.file.externalDataDirectory, 'RadioStation').then(
-      res => {
-        alert('asdf');
-        this.files = res;
-      },
-      err => {
-        alert('qwer');
-        console.log('error loading files: ', err)
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    localStorage.clear();
+    
   }
 
   getAudioList() {
@@ -65,6 +40,9 @@ export class PrayerRequestPage implements OnInit, OnDestroy {
     }
   }
 
+  ionViewWillEnter() {
+    localStorage.clear();
+  }
 
   checkPermission() {
     if (this.platform.is('android')) {

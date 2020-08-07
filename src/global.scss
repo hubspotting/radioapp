@@ -31,16 +31,16 @@
 
 
 ion-toolbar {
-    --background: rgb(235, 100, 224) !important;
+    --background: #0c4c8a !important;
     ion-menu-button {
         color: white !important;
     }
 }
 ion-menu-toggle {
     ion-item.selected {
-        --color: rgb(235, 100, 224) !important;
+        --color: #0c4c8a !important;
         ion-icon {
-            color: rgb(235, 100, 224) !important;
+            color: #0c4c8a !important;
         }
     }
 }
